@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 html,
 body {
   padding: 0;
@@ -13,6 +18,43 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+/* Hamburger button animation css  */
+
+.menu-btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 35px;
+  cursor: pointer;
+  transition: all .5s ease-in-out;
+}
+
+.menu-btn__burger::before,
+.menu-btn__burger::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background: #000;
+  border-radius: 3px;
+  transition: all .5s ease-in-out;
+}
+.menu-btn__burger::before {
+  transform: translateY(-6px);
+}
+.menu-btn__burger::after {
+  transform: translateY(6px);
+}
+
+.menu-btn.open .menu-btn__burger::before {
+  transform: rotate(45deg) ;
+}
+.menu-btn.open .menu-btn__burger::after {
+  transform: rotate(-45deg) ;
 }
 
 @media (prefers-color-scheme: dark) {
